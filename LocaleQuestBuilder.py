@@ -10,6 +10,9 @@ import logging
 LOG_FILE_NAME = "LocaleQuestBuilder.log" # Log file name
 LOCALE_QUEST_FILE_NAME = "locale_quest.txt" # Locale quest file name
 
+if not os.path.exists("log"):
+	os.mkdir("log")
+
 logging.basicConfig(filename = "log/" + LOG_FILE_NAME, level = logging.DEBUG, format = '%(asctime)s %(message)s', datefmt = '%d/%m/%Y %H:%M:%S')
 
 def GetLocaleQuestFile(locale):

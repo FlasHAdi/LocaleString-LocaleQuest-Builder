@@ -11,6 +11,9 @@ LOG_FILE_NAME = "LocaleStringBuilder.log" # Log file
 LOCALE_STRING_FILE = "locale_string.txt" # Locale strin file name
 LOCALE_STRING_BASE_FILE = "share/locale_string_vnum.txt" # Reference file name (String VNUM)
 
+if not os.path.exists("log"):
+	os.mkdir("log")
+
 logging.basicConfig(filename = "log/" + LOG_FILE_NAME, level = logging.DEBUG, format = '%(asctime)s %(message)s', datefmt = '%d/%m/%Y %H:%M:%S')
 
 def GetLocaleStringFile(locale):
