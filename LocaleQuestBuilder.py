@@ -29,11 +29,12 @@ def TranslateLocaleQuest(locale):
 		return
 
 	fileOutput = open(localeQuestOutput, 'a')
+	fileOutput.write("gameforge[\"%s\"] = {}\n" % (locale))
 	for line in open(GetLocaleQuestFile(locale), 'r'):
 		line = line.split('\t')
 		formated = line[1].replace("\"", "'")
 		print "gameforge[\"%s\"][%s] = \"%s\"\n" % (locale, line[0], formated.rsplit("\n", 1)[0])
-		fileOutput.write("gameforge[\"%s\"][%s] = \"%s\"\n" % (locale, line[0], formated.rsplit("\n", 1)[0]))
+		fileOutput.write("gameforge[\"%s\"][%s] = \"%s \"\n" % (locale, line[0], formated.rsplit("\n", 1)[0]))
 
 	fileOutput.close()
 
